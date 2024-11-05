@@ -9,14 +9,12 @@ public class Blackjack {
         Hand dealerHand = new Hand();
         Scanner scanner = new Scanner(System.in);
 
-        int count = 0;
+        int score = 5;
 
         System.out.println("\n       Blackjack       \nWelcome to the new game\n");
         int roundCount = 1;
 
-        while (count > -6) {
-            System.out.println(deck.getSize());
-
+        while (score > -6) {
             try {
                 playerHand.addCard(deck.drawCard());
                 playerHand.addCard(deck.drawCard());
@@ -29,7 +27,7 @@ public class Blackjack {
                 System.exit(0);
             }
 
-            System.out.println("Round " + roundCount + ", count: " + count);
+            System.out.println("Round " + roundCount + ", Score: " + score);
             System.out.println("Dealer's " + dealerHand + "\n");
             System.out.println("Your " + playerHand + "\n");
 
@@ -39,7 +37,7 @@ public class Blackjack {
             if (playerHand.calculateValue() == 21) {
                 System.out.println("You win! \n");
                 playerBusted = true;
-                count++;
+                score++;
             }
 
             if (!playerBusted) {
@@ -60,12 +58,12 @@ public class Blackjack {
                         if (playerHand.calculateValue() > 21) {
                             System.out.println("You busted! Dealer wins.\n");
                             playerBusted = true;
-                            count--;
+                            score--;
                             break;
                         } else if (playerHand.calculateValue() == 21) {
                             System.out.println("You win! \n");
                             playerBusted = true;
-                            count++;
+                            score++;
                             break;
                         }
                     } else if (choice.equals("s")) {
@@ -82,7 +80,7 @@ public class Blackjack {
                     if (dealerHand.calculateValue() == 21) {
                         System.out.println("Dealer wins! \n");
                         playerBusted = true;
-                        count--;
+                        score--;
                     }
                 }
 
@@ -105,13 +103,13 @@ public class Blackjack {
 
                     if (dealerTotal > 21) {
                         System.out.println("Dealer busted! You win.\n");
-                        count++;
+                        score++;
                     } else if (playerTotal > dealerTotal) {
                         System.out.println("You win!\n");
-                        count++;
+                        score++;
                     } else if (playerTotal < dealerTotal) {
                         System.out.println("Dealer wins!\n");
-                        count--;
+                        score--;
                     } else {
                         System.out.println("It's a tie!\n");
                     }

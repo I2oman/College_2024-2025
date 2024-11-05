@@ -1,0 +1,4 @@
+Nikolai,Bryant,145.6
+Susan,Brown,34.2
+Teressa,Jones,398.5
+Ben,Martin,98.3
