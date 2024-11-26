@@ -1,0 +1,18 @@
+create table users (id int auto_increment primary key, forename varchar(20) not null, surname varchar(20) not null, postcode varchar(10) not null, password varchar(8) not null);
+create table accounts (id int auto_increment primary key, savetype varchar(10) not null, saving double not null, userid int not null, foreign key (userid) references users(id));
+
+-- Insert data into the users table
+INSERT INTO users (forename, surname, postcode, password) VALUES
+('John', 'Doe', 'AB12 3CD', 'pass1234'),
+('Jane', 'Smith', 'CD34 5EF', 'word5678'),
+('Alice', 'Johnson', 'EF56 7GH', 'qwerty99'),
+('Bob', 'Brown', 'GH78 9IJ', 'secure11'),
+('Eve', 'Davis', 'IJ90 1KL', 'access22');
+
+-- Insert data into the accounts table
+INSERT INTO accounts (savetype, saving, userid) VALUES
+('Debit', 1200.50, 1),
+('Debit', 890.20, 2),
+('Credit', 50.00, 3),
+('Debit', 2500.00, 4),
+('Debit', 150.00, 5);
